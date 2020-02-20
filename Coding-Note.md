@@ -1,12 +1,12 @@
 ## include <bits/stdc++.h>
 **包含C++所有的头文件**
 ****
-## **C/C++中sizeof()、strlen()、length()、size()的区别：**  
+## C/C++中sizeof()、strlen()、length()、size()的区别：  
 **一、数组或字符串的长度：sizeof()、strlen()**  
 &emsp; 1、sizeof()：返回所占总空间的字节数  
 &emsp;&emsp;(1)、对于整型字符型数组  
 &emsp;&emsp;(2)、对于整型或字符型指针  
-&emsp;2、strlen()：返回字符数组或字符串所占的字节数  
+&emsp; 2、strlen()：返回字符数组或字符串所占的字节数  
 &emsp;&emsp;(1)、针对字符数组  
 &emsp;&emsp;(2)、针对字符指针
 ```
@@ -68,6 +68,7 @@ memset(str, c, n);      //赋值字符c到str所指向的字符串的前n个字�
 **math.h中常用函数**
 ```
 double pow(double x, double y);     //x的y次方。
+sqrt(int x);  //开方。
 ```
 ****
 **优先队列**
@@ -110,14 +111,14 @@ double b;
 sscanf(str, "%.3lf", &b);
 ```
 ****
-###用STL全排列函数，不断求上一个字典序---头文件<algorithm>
+### 用STL全排列函数，不断求上一个字典序---头文件\<algorithm\>  
 **prev_permutation()函数用法：**  
 &emsp; （buf, buf + n）内为内存中的一段连续空间的起点和终点，每次调用都将指定内存中的值修改为上一个字典序，如果当前排列已是第一个，返回"false"。  
-**next_permutation()函数：**
+**next_permutation()函数：**  
 &emsp; 求一个排序的下一个排列的函数。如果存在当前序列之后的排列，就返回true。如果当前序列是最后一个排列没有后继，返回false。
 ****
 ### C++产生随机数
-&emsp; srand()可用来设置rand()产生随机数时的随机数种子。
+&emsp; srand()可用来设置rand()产生随机数时的随机数种子。  
 &emsp; 可以利用srand((int)time(NULL))的方法，利用系统时钟，产生不同的随机数种子。
 ```
 #include <ctime>
