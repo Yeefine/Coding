@@ -1,7 +1,7 @@
-# #include <bits/stdc++.h>
+## include <bits/stdc++.h>
 **包含C++所有的头文件**
 ****
-####**C/C++中sizeof()、strlen()、length()、size()的区别：**
+## **C/C++中sizeof()、strlen()、length()、size()的区别：**  
 **一、数组或字符串的长度：sizeof()、strlen()**  
 &emsp; 1、sizeof()：返回所占总空间的字节数  
 &emsp;&emsp;(1)、对于整型字符型数组  
@@ -127,6 +127,13 @@ for(int i = 0; i < 10; i++){
     cout << rand() % 100 << " ";
 }
 ```
+****
+### C++向上取证/向下取整  
+函数名称|函数说明
+--|:--:
+floor()|不大于自变量的最大整数  
+ceil()|不小于自变量的最小整数
+round()|四舍五入到最邻近的整数
 
 
 
