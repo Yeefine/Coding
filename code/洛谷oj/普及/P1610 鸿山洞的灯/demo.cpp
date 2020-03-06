@@ -16,7 +16,7 @@ int main(){
 			ans++;
 		}else{
 			int j = i-1;
-			while(list[j] == 0)	j--;
+			while(light[j] == 0)	j--;
 			if(light[i+1] - light[j] <= dist){
 				light[i] = 0;
 				ans++;
