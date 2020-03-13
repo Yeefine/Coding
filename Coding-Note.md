@@ -141,8 +141,91 @@ round()|四舍五入到最邻近的整数
 ```
 for(int i = 1; i <= n; i++) a[i] = i;   //将1~n存入数组
 printf("%d", accumulate(a+1, a+n+1, 0)); //调用STL
+```     
+****  
+### 几种输入方法的总结  
++ **scanf**  
+&emsp; scanf()在读取**数字**时会跳过空格、制表符和换行符！（换行符不进数据缓冲区）   
+```
+    int main()
+    {
+        int str[6];
+        for(int i = 0; i < 3; i++){
+            scanf("%d", &str[i]);
+        }
+        for(int i = 0; i < 3; i++){
+            printf("%d", str[i]);
+        }
+        return 0;
+    }
+```
+```
+    输入：
+    1[回车]
+    2[回车]
+    3[回车]
+    输出：
+    123
+```
+&emsp; scanf()在读取**字符**时，<font color=red>回车符会残留在数据缓冲区中</font>  
+```
+    int main()  
+    {
+        char str[6];
+        for(int i = 0; i < 3; i++){
+            scanf("%c", &str[i]);
+        }
+        for(int i = 0; i < 3; i++){
+            printf("%c", str[i]);
+        }
+        return 0;
+    }
 ```  
+```
+    输入：
+    A[回车]
+    B[回车]
+    输出：
+    A
+    B
+```  
++ **cin**  
+&emsp;结果同scanf的输入数字。cin后的回车符会留在缓冲区中，只不过cin流有一个默认状态是为输入操作符（即">>"操作符）跳过空白，所以默认情况下用输入操作符读取时会跳过回车符等空白字符。即不受回车符的影响。
++ **cin.get()**：它是面向字符的输入方法。  
+   + 如果待输入的对象是字符数组，应该是cin.get(字符数组名，接受字符数目)，**该方法可以接受空格和Tab**  
+   + 如果待输入的对象是字符变量，那么应该是cin.get(字符变量名)  
++ **cin.getline()**：它是面向字符数组的输入方法。  
+&emsp;它的用法是cin.getline(字符数组名，接收字符数目)，**该方法可以接收空格和Tab**  
+&emsp; 当用户输入完毕回车时，**cin.getline()不会再在输入缓冲中保存换行符，而cin.get()会（cin也会）**  
++ **getline()**：面向string字符串的输入方法。用法时getline(cin，字符串名)，**该方法可以接收空格和Tab**  
++ **gets()**：这个方法编译器提示不安全  
++ **getchar()**：面向字符的输入方法  
+****  
+### 字母、字符串大小写转换  
++ **C语言下字母的大小写转换 —— toupper()、tolower()**  
+```  
+#include<ctype.h>
+#include<string>
+using namespace std;
 
+string s = "ABC";
+for(int i = 0; i < s.size(); i++){
+    s[i] = tolower(s[i]);   转小写
+}
+for(int i = 0; i < s.size(); i++){
+    s[i] = toupper(s[i]);   //转大写
+}
+```  
++ **C++下字符串的大小写转换 —— transform()**    
+```
+#include<algorithm>
+#include<string>
+using namespace std;
+
+string s = "ABC";
+transform(s.begin(), s.end(), s.begin(), ::tolower);  //注意 :: ，且没有 ()
+transform(s.begin(), s.end(), s.begin(), ::toupper); 
+```
 
 
 
