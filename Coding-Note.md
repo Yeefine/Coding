@@ -225,8 +225,72 @@ using namespace std;
 string s = "ABC";
 transform(s.begin(), s.end(), s.begin(), ::tolower);  //注意 :: ，且没有 ()
 transform(s.begin(), s.end(), s.begin(), ::toupper); 
+```  
+****
+### Vector  
 ```
+#include<stdio.h>
+#include <vector>
+using namespace std;
 
+struct Edge {
+	int nextNode;
+	int cost;
+}; 
+
+vector<Edge> edge[10];
+
+// 清空链表 
+for(int i = 0; i < 10; i++){
+	edge[i].clear();
+}
+
+// 添加 
+Edge tmp;
+tmp.nextNode = 3;
+tmp.cost = 38;
+edge[1].push_back(tmp);
+
+// 删除 
+edge[1].erase(edge[1][2].begin() + 1, edge[1][2].end()+1); // （第一个要删除的元素的编号， 最后一个要删除的元素的编号+1）
+
+// 查询 
+for(int i = 0; i < edge[2].size(); i++){
+	int nextNode = edge[2][i].nextNode;
+	int cost = edge[2][i].cost;
+} 
+```
+****  
+### Map  
+```
+map<string, int> M;
+M.clear();
+M.find(b);  //确定map中是否保存string对象b的映射，若没有函数返回M.end(), 与string的find判断区别  
+M[b] = idx; 
+idxb = M[b];
+```  
+****  
+### 素数 线性筛法  
+```
+int prime[MAXN];
+int flag[MAXN] = {0};
+int primeSize;
+
+void init(){
+    primeSize = 0;
+    for(int i = 2; i <= n; i++){
+        if(flag[i] == 0){
+            prime[primeSize++] = i;
+        }
+
+        for(int j = 0; j < primeSize && i * prime[j]; j++){
+            flag[i * prime[j]] = 1;
+            if(i % prime[j] == 0)   break;
+        }
+    }
+}
+```  
+&emsp; 偶数位的回文数不是质数。
 
 
 
