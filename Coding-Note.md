@@ -233,6 +233,23 @@ transform(s.begin(), s.end(), s.begin(), ::toupper);
 #include <vector>
 using namespace std;
 
+// vector的初始化
+vector<int> list1;    //vector为空，size为0，不能用list1[i]
+vector<int> list2(list1);
+vector<int> list3 = {1, 2, 3, 4, 5};
+vector<int> list4 {1, 2, 3, 4, 5};
+vector<int> list5(list4.begin()+2, list4.end()-1);  //list5 = {3, 4}
+vector<int> list6(7);   //list6中将包含7个元素，每个元素进行缺省的值初始化，int为0  
+vector<int> list7(7, 3);   //list7被初始化为包含7个值为3的int
+
+// 遍历 
+for(vector<int>::iterator it = list.begin(); it != list.end(); it++){
+    ...
+}   
+for(int i = 0; i < list.size(); i++){   //不通用
+    ...
+}
+
 struct Edge {
 	int nextNode;
 	int cost;
@@ -268,6 +285,11 @@ M.clear();
 M.find(b);  //确定map中是否保存string对象b的映射，若没有函数返回M.end(), 与string的find判断区别  
 M[b] = idx; 
 idxb = M[b];
+
+//map的遍历
+for(auto it = M.begin(); it != M.end(); it++){
+    ...
+}
 ```  
 ****  
 ### 素数 线性筛法  
@@ -290,7 +312,22 @@ void init(){
     }
 }
 ```  
-&emsp; 偶数位的回文数不是质数。
+&emsp; 偶数位的回文数不是质数。  
+****  
+### C++标准输出保留几位小数，用setprecision与fixed合作  
+```  
+#include<iomanip>
+using namespace std;
+
+double s = 20.7843909;
+cout << setprecision(3) << s << endl;     //输出20.7  
+
+cout << fixed << setprecision(3) << s << endl;    //输出20.784  
+
+cout.self(ios::fixed);
+cout << setprecision(3) << s << endl;     //输出20.784  
+```  
+  
 
 
 
